@@ -8,8 +8,6 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
-import edu.wpi.first.wpilibj.command.Command;
-
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -19,7 +17,6 @@ import edu.wpi.first.wpilibj.command.Command;
  * directory.
  */
 public class Robot extends IterativeRobot {
-	Command test2;
 	RobotDrive myRobot;
 	Joystick stick;
 	Relay mVentana;
@@ -67,7 +64,9 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
+    	//Motores del Drive
     	myRobot.arcadeDrive(stick); 
+    	//Elevador
     	if(btn_a.get() || btn_b.get()){
     		mVentana.set(Relay.Value.kOn);
     		if(btn_a.get()){
