@@ -1,0 +1,114 @@
+\documentclass[%
+ reprint, % two colums
+%preprint, % single columns
+%superscriptaddress,
+%groupedaddress,
+%unsortedaddress,
+%runinaddress,
+%frontmatterverbose, 
+%preprint,
+%showpacs,preprintnumbers,
+%nofootinbib,
+%nobibnotes,
+%bibnotes,
+ amsmath,amssymb,
+ aps,
+ pra,
+%prb,
+%rmp,
+%prstab,
+%prstper,
+%floatfix,
+]{revtex4-1}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}% Include figure files
+\usepackage{listings} % Include source code
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{hyperref}% add hypertext capabilities
+\usepackage{float}%use figure with borders
+
+\begin{document}
+
+\title{Team Eugenio 4635 Engineering Documentation \\ FRC 2015 Recycle Rush}
+
+\author{Mario Gutiérrez}
+\email{mgutierrez@gmail.com}
+\affiliation{Monterrey Institute of Technology\\}
+
+\author{Antonio Torres}
+\email{atorres@gmail.com}
+\affiliation{Monterrey Institute of Technology\\}
+
+\date{\today}
+
+% make the title area
+\maketitle
+
+
+\section{Introduction}
+This document explains the all engineering related work done by Team Eugenio 4635 during the build season of the First Robotics Competition 2015 challenge Recycle Rush.
+
+Here are some examples on how to use \LaTeX :
+\begin{itemize}
+\item Here's a bullet.
+\item Here's another one.
+\end{itemize}
+
+This is how you place a table:
+\begin{tabular}{ l c r }
+  1 & 2 & 3 \\
+  4 & 5 & 6 \\
+  7 & 8 & 9 \\
+\end{tabular}
+
+You can insert code like this:
+\begin{lstlisting}[language=Java]
+for(int i=0; i<10; i++){
+   System.out.println("Hello World");
+}
+\end{lstlisting}
+
+Here's a figure:
+\begin{figure}[H]
+    \includegraphics[width = \columnwidth]{RecycleRush}
+    \caption{Caption goes here.} 
+\end{figure}
+
+This is how you insert a hyperlink \href{http://google.com}{link to Google.com}
+
+
+\section{Task Definition}
+Definition of the specific tasks in which the team was working on during the build season, and the tasks that they will have to accomplish during the regional.
+
+\section{Planning and Design}
+Description of the team's organizational structure and the individual engineering roles taken by the team members. General description about the robot's design focusing on functionality. Include schedules and deadlines. Relate every taken decision about the design with some goal relevant to the task.
+
+\subsection{Hardware}
+Detailed description about the robot's mechanical and electrical systems, including all physical components and some arguments that justify the decision of implementing those systems over any other one. Also include diagrams that show the robot's mechanisms and circuits.
+
+\subsection{Software}
+Detailed description about the robot's programming, including the code's general structure and some arguments that justify the implementation of the techniques or paradigms present in that code. 
+
+
+\section{Development}
+Description about the process of actually making the robot. Justify the hardware and software tools that were used. State some of the main challenges and the way you managed to overcome them.
+
+
+\section{Evaluation}
+Evaluate the team's outcome and its overall performance. Give the specifications and capabilities of the robot. State the team's strengths, weakness, opportunities, and threats (SWOT).
+
+\section{Conclusion}
+See you at the competition!
+
+\section{Appendix}
+Some text for the appendix.
+
+\section*{Acknowledgments}
+The authors would like to thank Pablo Brubeck for being such a great guy.
+
+\bibliographystyle{unsrt}
+\bibliography{bibliography}
+
+\end{document}
