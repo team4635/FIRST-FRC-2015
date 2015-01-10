@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.10.11)  9 JAN 2015 18:30
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.10.11)  9 JAN 2015 19:15
 entering extended mode
 **main.tex
-("C:\Users\Pablo\Downloads\IEEE Journal\main.tex"
+(C:\Users\Pablo\Documents\GitHub\FIRST-FRC-2015\Documentation\main.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -614,31 +614,31 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks28
 \@floatcapt=\box46
 )
-Class revtex4-1 Info: Patching array package. on input line 32.
+Class revtex4-1 Info: Patching array package. on input line 31.
 
 
 Class revtex4-1 Warning: Repair the float package.
 
-Class revtex4-1 Info: Robustifying \LaTeX's \boldmath command on input line 32.
+Class revtex4-1 Info: Robustifying \LaTeX's \boldmath command on input line 31.
 
-Class revtex4-1 Info: cite was not loaded (OK!) on input line 32.
-Class revtex4-1 Info: mcite was not loaded (OK!) on input line 32.
-Class revtex4-1 Info: multicol was not loaded (OK!) on input line 32.
-("C:\Users\Pablo\Downloads\IEEE Journal\main.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
+Class revtex4-1 Info: cite was not loaded (OK!) on input line 31.
+Class revtex4-1 Info: mcite was not loaded (OK!) on input line 31.
+Class revtex4-1 Info: multicol was not loaded (OK!) on input line 31.
+(C:\Users\Pablo\Documents\GitHub\FIRST-FRC-2015\Documentation\main.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -656,7 +656,7 @@ LaTeX Font Info:    ... okay on input line 32.
 )
 \c@lstlisting=\count134
 \AtBeginShipoutBox=\box48
-Package hyperref Info: Link coloring OFF on input line 32.
+Package hyperref Info: Link coloring OFF on input line 31.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -665,51 +665,51 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count135
 )
-LaTeX Info: Redefining \ref on input line 32.
-LaTeX Info: Redefining \pageref on input line 32.
-LaTeX Info: Redefining \nameref on input line 32.
+LaTeX Info: Redefining \ref on input line 31.
+LaTeX Info: Redefining \pageref on input line 31.
+LaTeX Info: Redefining \nameref on input line 31.
 
-("C:\Users\Pablo\Downloads\IEEE Journal\main.out")
-("C:\Users\Pablo\Downloads\IEEE Journal\main.out")
+(C:\Users\Pablo\Documents\GitHub\FIRST-FRC-2015\Documentation\main.out)
+(C:\Users\Pablo\Documents\GitHub\FIRST-FRC-2015\Documentation\main.out)
 \@outlinefile=\write4
-Class revtex4-1 Info: Taking \maketitle back from hyperref on input line 32.
+Class revtex4-1 Info: Taking \maketitle back from hyperref on input line 31.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 47.
+(hyperref)                removing `\\' on input line 46.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 47.
+LaTeX Font Info:    Try loading font information for U+msa on input line 46.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 47.
+LaTeX Font Info:    Try loading font information for U+msb on input line 46.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 55.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 54.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 55.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 54.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
 File: lstlang1.sty 2013/08/26 1.5b listings language file
 )
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 68.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 67.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 68.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 67.
 
 <RecycleRush.jpg, id=51, 722.7pt x 361.35pt>
 File: RecycleRush.jpg Graphic file (type jpg)
  <use RecycleRush.jpg>
-Package pdftex.def Info: RecycleRush.jpg used on input line 75.
+Package pdftex.def Info: RecycleRush.jpg used on input line 74.
 (pdftex.def)             Requested size: 246.0pt x 123.00073pt.
  [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}pdfTeX warning (ext4): d
 estination with the same identifier (name{figure.1}) has been already used, dup
@@ -717,22 +717,22 @@ licate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.108 \section
-              *{Acknowledgments} <C:/Users/Pablo/Downloads/IEEE Journal/Recycle
-Rush.jpg>]
+l.107 \section
+              *{Acknowledgments} <C:/Users/Pablo/Documents/GitHub/FIRST-FRC-201
+5/Documentation/RecycleRush.jpg>]
 No file main.bbl.
 [2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 114.
- ("C:\Users\Pablo\Downloads\IEEE Journal\main.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 114.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 114.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 113.
+ (C:\Users\Pablo\Documents\GitHub\FIRST-FRC-2015\Documentation\main.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 113.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 113.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 9F8889427B9E8026A0BA7C57C6EBB6D3;696.
  ) 
 Here is how much of TeX's memory you used:
  10103 strings out of 493921
- 137843 string characters out of 3147281
- 257535 words of memory out of 3000000
+ 138096 string characters out of 3147281
+ 257681 words of memory out of 3000000
  13237 multiletter control sequences out of 15000+200000
  14602 words of font info for 54 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
@@ -748,7 +748,7 @@ cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Prog
 ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files
 /MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on main.pdf (2 pages, 172202 bytes).
+Output written on main.pdf (2 pages, 172222 bytes).
 PDF statistics:
  124 PDF objects out of 1000 (max. 8388607)
  20 named destinations out of 1000 (max. 500000)
