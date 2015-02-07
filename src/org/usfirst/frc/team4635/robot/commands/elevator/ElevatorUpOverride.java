@@ -8,17 +8,15 @@ import org.usfirst.frc.team4635.robot.Robot;
 /**
  *
  */
-public class ElevatorUp extends Command {
+public class ElevatorUpOverride extends Command {
 
-	private int counter=0;
-    public ElevatorUp() {
+    public ElevatorUpOverride() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.WindowMotor);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	counter=0;
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -30,12 +28,7 @@ public class ElevatorUp extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (counter>20)
-    		return Robot.WindowMotor.isSwitchSet();
-    	else
-    		counter++;
     	return false;
-    	//return false;
     }
 
     // Called once after isFinished returns true

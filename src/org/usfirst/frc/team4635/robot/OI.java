@@ -27,6 +27,11 @@ public class OI {
     //
     Button btnElevatorUp = new JoystickButton(attack3Joystick, RobotMap.elevatorUpPort);
     Button btnElevatorDown = new JoystickButton(attack3Joystick, RobotMap.elevatorDownPort);
+    Button btnElevatorStop = new JoystickButton(attack3Joystick, RobotMap.elevatorStopPort);
+    
+    Button btnElevatorUpOverride = new JoystickButton(attack3Joystick, RobotMap.elevatorUpOverridePort);
+    Button btnElevatorDownOverride = new JoystickButton(attack3Joystick, RobotMap.elevatorDownOverridePort);
+    
     Button btnVerticalRight = new JoystickButton(attack3Joystick, RobotMap.verticalRightPort);
     Button btnVerticalLeft = new JoystickButton(attack3Joystick, RobotMap.verticalLeftPort);
     //Button btn3 = new JoystickButton(attack3Joystick, RobotMap.elevatorDownPort);
@@ -62,8 +67,13 @@ public class OI {
 	//        return leftAttack3Joystick.getRawAxis(1); //look up what the actual axis number is
 	//    }
     public OI() {
-        btnElevatorUp.whileHeld(new ElevatorUp()); //Eje Y
-        btnElevatorDown.whileHeld(new ElevatorDown()); //Eje Y
+        btnElevatorUp.whenPressed(new ElevatorUp()); //Eje Y
+        btnElevatorDown.whenPressed(new ElevatorDown()); //Eje Y
+        btnElevatorStop.whenPressed(new ElevatorStop()); //Eje Y
+        btnElevatorUpOverride.whileHeld(new ElevatorUpOverride()); //Eje Y
+        btnElevatorDownOverride.whileHeld(new ElevatorDownOverride()); //Eje Y
+        
+        
         btnVerticalRight.whileHeld(new verticalRight()); //Eje Y
         //btn3.whenPressed(new ElevatorStop()); //Eje Y
     } 

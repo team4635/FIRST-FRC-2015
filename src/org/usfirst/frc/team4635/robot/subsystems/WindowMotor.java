@@ -3,6 +3,7 @@ package org.usfirst.frc.team4635.robot.subsystems;
 
 import org.usfirst.frc.team4635.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Counter;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Relay;
@@ -17,6 +18,7 @@ public class WindowMotor extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	Relay ventana = new Relay(RobotMap.elevatorMotorPort);
+	AnalogInput ai2 = new AnalogInput(RobotMap.analogElevator);
 	//DigitalInput limitSwitch = new DigitalInput(0);
 	//Counter counter = new Counter(limitSwitch);
 
@@ -36,9 +38,12 @@ public class WindowMotor extends Subsystem {
     	ventana.set(Relay.Value.kOff);
     }
     
-//    public boolean isSwitchSet() {
-//        return counter.get() > 0;
-//    }
+    public boolean isSwitchSet() {
+        return ai2.getVoltage() > 4;
+    }
+    public double voltage(){
+    	return ai2.getVoltage();
+    }
 //    public void initializeCounter() {
 //        counter.reset();
 //    }

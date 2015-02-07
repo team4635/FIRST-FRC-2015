@@ -30,7 +30,10 @@ public class RobotMap {
     // 
     public static int elevatorUpPort = 1;
     public static int elevatorDownPort = 2;
-    //public static int elevatorStopPort = 5;
+    public static int elevatorStopPort = 3;
+    public static int elevatorUpOverridePort = 11;
+    public static int elevatorDownOverridePort = 10;
+    
     public static int verticalRightPort = 5;
     public static int verticalLeftPort = 4;
     
@@ -38,4 +41,10 @@ public class RobotMap {
     // Map of ElevatorMotors
     //
     public static int elevatorMotorPort = 0;
+    
+    //
+    // Map of AnalogInputs
+    //
+    public static int analogForward = 0;
+    public static int analogElevator =1;
 }
