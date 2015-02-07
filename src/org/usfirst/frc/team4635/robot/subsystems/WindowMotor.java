@@ -6,6 +6,7 @@ import org.usfirst.frc.team4635.robot.RobotMap;
 import edu.wpi.first.wpilibj.Counter;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -15,9 +16,9 @@ public class WindowMotor extends Subsystem {
     
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	Relay ventana = new Relay(RobotMap.elevatorUpPort);
-	DigitalInput limitSwitch = new DigitalInput(0);
-	Counter counter = new Counter(limitSwitch);
+	Relay ventana = new Relay(RobotMap.elevatorMotorPort);
+	//DigitalInput limitSwitch = new DigitalInput(0);
+	//Counter counter = new Counter(limitSwitch);
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -35,12 +36,12 @@ public class WindowMotor extends Subsystem {
     	ventana.set(Relay.Value.kOff);
     }
     
-    public boolean isSwitchSet() {
-        return counter.get() > 0;
-    }
-    public void initializeCounter() {
-        counter.reset();
-    }
+//    public boolean isSwitchSet() {
+//        return counter.get() > 0;
+//    }
+//    public void initializeCounter() {
+//        counter.reset();
+//    }
 
 }
 

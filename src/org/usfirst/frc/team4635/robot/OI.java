@@ -3,7 +3,9 @@ package org.usfirst.frc.team4635.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import org.usfirst.frc.team4635.robot.commands.elevator.ElevatorUp;
+
+import org.usfirst.frc.team4635.robot.commands.drivetrain.verticalRight;
+import org.usfirst.frc.team4635.robot.commands.elevator.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -23,7 +25,11 @@ public class OI {
     //Buttons
     //Este es el mappeo de botones de los controladores:
     //
-    Button btn1 = new JoystickButton(attack3Joystick, RobotMap.elevatorUpPort);
+    Button btnElevatorUp = new JoystickButton(attack3Joystick, RobotMap.elevatorUpPort);
+    Button btnElevatorDown = new JoystickButton(attack3Joystick, RobotMap.elevatorDownPort);
+    Button btnVerticalRight = new JoystickButton(attack3Joystick, RobotMap.verticalRightPort);
+    Button btnVerticalLeft = new JoystickButton(attack3Joystick, RobotMap.verticalLeftPort);
+    //Button btn3 = new JoystickButton(attack3Joystick, RobotMap.elevatorDownPort);
     // There are a few additional built in buttons you can use. Additionally,
     // by subclassing Button you can create custom triggers and bind those to
     // commands the same as any other Button.
@@ -56,7 +62,10 @@ public class OI {
 	//        return leftAttack3Joystick.getRawAxis(1); //look up what the actual axis number is
 	//    }
     public OI() {
-        btn1.whenPressed(new ElevatorUp()); //Eje Y
+        btnElevatorUp.whileHeld(new ElevatorUp()); //Eje Y
+        btnElevatorDown.whileHeld(new ElevatorDown()); //Eje Y
+        btnVerticalRight.whileHeld(new verticalRight()); //Eje Y
+        //btn3.whenPressed(new ElevatorStop()); //Eje Y
     } 
 	
 	public double getJoystickY() {

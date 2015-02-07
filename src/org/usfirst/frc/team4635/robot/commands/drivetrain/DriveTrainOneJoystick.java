@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team4635.robot.commands.drivetrain;
 
+
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team4635.robot.Robot;
@@ -23,7 +24,7 @@ public class DriveTrainOneJoystick extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	((DriveTrain) Robot.DriveTrain).drive(Robot.oi.getJoystickX(),Robot.oi.getJoystickY(), Robot.oi.getThrottle());
+    		((DriveTrain) Robot.DriveTrain).drive(-Robot.oi.getJoystickX(),Robot.oi.getJoystickY(), Robot.oi.getThrottle());
     }
 
     // Make this return true when this Command no longer needs to run execute()

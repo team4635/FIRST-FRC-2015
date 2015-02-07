@@ -29,4 +29,13 @@ public class RobotMap {
 	// Map of Buttons
     // 
     public static int elevatorUpPort = 1;
+    public static int elevatorDownPort = 2;
+    //public static int elevatorStopPort = 5;
+    public static int verticalRightPort = 5;
+    public static int verticalLeftPort = 4;
+    
+    //
+    // Map of ElevatorMotors
+    //
+    public static int elevatorMotorPort = 0;
 }

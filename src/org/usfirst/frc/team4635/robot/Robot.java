@@ -1,9 +1,10 @@
 
 package org.usfirst.frc.team4635.robot;
 
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.SerialPort;
-
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -12,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team4635.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4635.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team4635.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team4635.robot.subsystems.SerialCommunications;
 import org.usfirst.frc.team4635.robot.subsystems.WindowMotor;
 import org.usfirst.frc.team4635.robot.commands.Teleop;
 
@@ -32,7 +34,8 @@ public class Robot extends IterativeRobot {
 
     Command autonomousCommand;
     Command Teleop;
-    SerialPort arduino;
+   
+    //SerialPort arduino;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -85,7 +88,7 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         Teleop.start();
-        //arduino.writeString("t");
+        //arduino.writeString("on");
     }
     
     /**

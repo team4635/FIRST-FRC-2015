@@ -1,44 +1,45 @@
 
-package org.usfirst.frc.team4635.robot.commands.elevator;
+package org.usfirst.frc.team4635.robot.commands.drivetrain;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team4635.robot.Robot;
+import org.usfirst.frc.team4635.robot.subsystems.DriveTrain;
 
 /**
  *
  */
-public class ElevatorUp extends Command {
+public class verticalRight extends Command {
 
-    public ElevatorUp() {
+    public verticalRight() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.WindowMotor);
+        requires(Robot.DriveTrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	((DriveTrain) Robot.DriveTrain).drive(0,0);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.WindowMotor.up();
-    
+    	((DriveTrain) Robot.DriveTrain).drive(1,0, 1);
+    	Timer.delay(0.5);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        //return Robot.WindowMotor.isSwitchSet();
-    	return false;
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.WindowMotor.stop();
+    	((DriveTrain) Robot.DriveTrain).drive(0,0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.WindowMotor.stop();
     }
 }

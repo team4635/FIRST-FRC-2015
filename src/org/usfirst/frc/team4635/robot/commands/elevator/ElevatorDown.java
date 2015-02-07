@@ -8,9 +8,9 @@ import org.usfirst.frc.team4635.robot.Robot;
 /**
  *
  */
-public class ElevatorUp extends Command {
+public class ElevatorDown extends Command {
 
-    public ElevatorUp() {
+    public ElevatorDown() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.WindowMotor);
     }
@@ -21,7 +21,7 @@ public class ElevatorUp extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.WindowMotor.up();
+    	Robot.WindowMotor.down();
     
     }
 
