@@ -24,13 +24,24 @@ public class verticalRight extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	((DriveTrain) Robot.DriveTrain).drive(1,0, 1);
+    	Robot.analogDevices.resetGyro();
+    	System.out.println(Robot.analogDevices.getGyro());
+    	while(Robot.analogDevices.getGyro()>-10){
+    		((DriveTrain) Robot.DriveTrain).drive(0.5,0, 1);
+    	}
+    	System.out.println(Robot.analogDevices.getGyro());
+    	((DriveTrain) Robot.DriveTrain).drive(0,0.5, 1);
     	Timer.delay(0.5);
+    	while(Robot.analogDevices.getGyro()<=0){
+    		((DriveTrain) Robot.DriveTrain).drive(-0.5,0, 1);
+    	}
+    	((DriveTrain) Robot.DriveTrain).drive(0,0);
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

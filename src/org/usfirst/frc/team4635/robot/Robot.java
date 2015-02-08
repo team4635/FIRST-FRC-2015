@@ -2,19 +2,20 @@
 package org.usfirst.frc.team4635.robot;
 
 import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.BuiltInAccelerometer;
+import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import org.usfirst.frc.team4635.robot.commands.ExampleCommand;
-import org.usfirst.frc.team4635.robot.subsystems.ExampleSubsystem;
-import org.usfirst.frc.team4635.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team4635.robot.subsystems.SerialCommunications;
-import org.usfirst.frc.team4635.robot.subsystems.WindowMotor;
+import org.usfirst.frc.team4635.robot.subsystems.*;
 import org.usfirst.frc.team4635.robot.commands.Teleop;
 
 /**
@@ -29,12 +30,15 @@ public class Robot extends IterativeRobot {
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static final Subsystem DriveTrain =new DriveTrain();
 	public static final WindowMotor WindowMotor =new WindowMotor();
+	public static final analogDevices analogDevices =new analogDevices();
 	//public static final SerialCommunications Arduino =new SerialCommunications();
 	public static OI oi;
 
     Command autonomousCommand;
     Command Teleop;
+    Command Test;
    
+	BuiltInAccelerometer acc = new BuiltInAccelerometer();
     //SerialPort arduino;
 
     /**
@@ -89,6 +93,7 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         Teleop.start();
         //arduino.writeString("on");
+        //System.out.println("X: "+acc.getX()+"Y: "+acc.getY()+"Z: "+acc.getZ()+"Gyro: ");
     }
     
     /**

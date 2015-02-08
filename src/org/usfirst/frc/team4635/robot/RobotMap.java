@@ -45,6 +45,7 @@ public class RobotMap {
     //
     // Map of AnalogInputs
     //
-    public static int analogForward = 0;
-    public static int analogElevator =1;
+    public static int analogForward = 1;
+    public static int gyroPort = 0;
+    public static int analogElevator =2;
 }

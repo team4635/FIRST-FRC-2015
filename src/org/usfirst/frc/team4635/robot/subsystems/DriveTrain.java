@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team4635.robot.subsystems;
 
+import org.usfirst.frc.team4635.robot.Robot;
 import org.usfirst.frc.team4635.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.AnalogInput;
@@ -16,7 +17,12 @@ public class DriveTrain extends Subsystem {
     // here. Call these from Commands.
 	RobotDrive myRobot = new RobotDrive(0,1,2,3);
 	AnalogInput ai = new AnalogInput(RobotMap.analogForward);
+	
+	double correctWay = 0;
+	double Kp =0.03;
+	
     public void initDefaultCommand() {
+    	double test = Robot.analogDevices.getGyro();
     	myRobot.drive(0, 0);
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
@@ -25,8 +31,9 @@ public class DriveTrain extends Subsystem {
     	myRobot.tankDrive(speedLeft, speedRight);
     }
     public void drive(double xSpeed, double ySpeed, double yThrottle) {
-    		myRobot.arcadeDrive(sensorIRX(ai.getVoltage(), ySpeed)*yThrottle, sensorIRY(ai.getVoltage(), xSpeed)*yThrottle+(1/3));
-    		//System.out.println(ai.getVoltage());
+    	myRobot.arcadeDrive(sensorIRX(ai.getVoltage(), ySpeed)*yThrottle, sensorIRY(ai.getVoltage(), xSpeed)*yThrottle, true);
+    	//myRobot.arcadeDrive(ySpeed*yThrottle, xSpeed*yThrottle );
+    	//System.out.println(ai.getVoltage());
     }
     public void stop(){
     	myRobot.drive(0, 0);
@@ -64,6 +71,11 @@ public class DriveTrain extends Subsystem {
 	    	value=(voltaje/stopline)*0.5;
 	    	return speed*(1-value);
     	}
+    }
+    private void checkWay(){
+    	double angle = Robot.analogDevices.getGyro();
+    	correctWay=angle*Kp;
+    	
     }
 }
 
