@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import org.usfirst.frc.team4635.robot.commands.drivetrain.verticalRight;
+import org.usfirst.frc.team4635.robot.commands.drivetrain.Rotate;
 import org.usfirst.frc.team4635.robot.commands.elevator.*;
 
 /**
@@ -74,7 +74,7 @@ public class OI {
         btnElevatorDownOverride.whileHeld(new ElevatorDownOverride()); //Eje Y
         
         
-        btnVerticalRight.whileHeld(new verticalRight()); //Eje Y
+        btnVerticalRight.whileHeld(new Rotate(30)); //Eje Y
         //btn3.whenPressed(new ElevatorStop()); //Eje Y
     } 
 	

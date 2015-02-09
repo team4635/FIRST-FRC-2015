@@ -11,6 +11,7 @@ import org.usfirst.frc.team4635.robot.Robot;
 public class ElevatorDown extends Command {
 
 	private int counter=0;
+	private boolean isInLimits=true;
     public ElevatorDown() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.WindowMotor);
@@ -19,19 +20,23 @@ public class ElevatorDown extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	counter=0;
+    	checkLimits();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.WindowMotor.down();
-    	System.out.println(Robot.WindowMotor.voltage());
+    	if(!isInLimits)
+    		Robot.WindowMotor.down();
     
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+    	checkLimits();
     	if (counter>20)
-    		return Robot.WindowMotor.isSwitchSet();
+    		return (Robot.WindowMotor.isSwitchSet(-1) || isInLimits);
+    	else if (isInLimits)
+    		return true;
     	else
     		counter++;
     	return false;
@@ -46,5 +51,8 @@ public class ElevatorDown extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     	Robot.WindowMotor.stop();
+    }
+    private void checkLimits() {
+    	isInLimits=Robot.WindowMotor.isBottomSet();
     }
 }

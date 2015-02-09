@@ -22,7 +22,7 @@ public class ElevatorDownOverride extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.WindowMotor.down();
-    	System.out.println(Robot.WindowMotor.voltage());
+    	System.out.println(Robot.WindowMotor.getVoltage());
     
     }
 

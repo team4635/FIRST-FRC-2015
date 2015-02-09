@@ -1,7 +1,6 @@
 
 package org.usfirst.frc.team4635.robot.commands.drivetrain;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team4635.robot.Robot;
@@ -10,38 +9,45 @@ import org.usfirst.frc.team4635.robot.subsystems.DriveTrain;
 /**
  *
  */
-public class verticalRight extends Command {
+public class Rotate extends Command {
 
-    public verticalRight() {
+	private double anguloDes= 0.00f;
+	private double anguloAct= 0.00f;
+	private double vMax= 0.5f;
+	private double vMin= 0.1f;
+	private double velocidad= 0.00f;
+	private boolean positivo = true;
+    public Rotate(double value) {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.DriveTrain);
+        anguloDes=value;
+        if(anguloDes>0)
+        	positivo = true;
+        else
+        	positivo = false;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	((DriveTrain) Robot.DriveTrain).drive(0,0);
+    	Robot.analogDevices.resetGyro();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.analogDevices.resetGyro();
-    	System.out.println(Robot.analogDevices.getGyro());
-    	while(Robot.analogDevices.getGyro()>-10){
-    		((DriveTrain) Robot.DriveTrain).drive(0.5,0, 1);
-    	}
-    	System.out.println(Robot.analogDevices.getGyro());
-    	((DriveTrain) Robot.DriveTrain).drive(0,0.5, 1);
-    	Timer.delay(0.5);
-    	while(Robot.analogDevices.getGyro()<=0){
-    		((DriveTrain) Robot.DriveTrain).drive(-0.5,0, 1);
-    	}
-    	((DriveTrain) Robot.DriveTrain).drive(0,0);
+    	anguloAct=Robot.analogDevices.getGyro();
+    	velocidad=((vMin-vMax)/Math.pow(anguloDes,2))*Math.pow((anguloAct-(anguloDes/2)), 2)+vMax;
+    	((DriveTrain) Robot.DriveTrain).drive(velocidad,0);
     	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+	    if (positivo && anguloAct>anguloDes)//Si el angulo desado es positivo compara que el actual sea mayor
+	    	return true;
+	    else if (!positivo && anguloAct<anguloDes)//Si el angulo desado es negativo compara que el angulo actual sea menor
+	    	return true;
+	    else
+	    	return false;
     }
 
     // Called once after isFinished returns true

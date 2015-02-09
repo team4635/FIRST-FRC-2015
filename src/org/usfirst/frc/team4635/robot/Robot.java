@@ -1,20 +1,13 @@
 
 package org.usfirst.frc.team4635.robot;
 
-import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
-import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.SerialPort;
-import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-import org.usfirst.frc.team4635.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4635.robot.subsystems.*;
 import org.usfirst.frc.team4635.robot.commands.Teleop;
 
@@ -48,7 +41,6 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		oi = new OI();
         // instantiate the command used for the autonomous period
-        autonomousCommand = new ExampleCommand();
         Teleop = new Teleop();
         //arduino.writeString("Eugenio 4635");
       
