@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import org.usfirst.frc.team4635.robot.subsystems.*;
+import org.usfirst.frc.team4635.robot.commands.Autonomous;
 import org.usfirst.frc.team4635.robot.commands.Teleop;
 
 /**
@@ -24,12 +25,15 @@ public class Robot extends IterativeRobot {
 	public static final Subsystem DriveTrain =new DriveTrain();
 	public static final WindowMotor WindowMotor =new WindowMotor();
 	public static final analogDevices analogDevices =new analogDevices();
+	public static final Variables variables =new Variables();
 	//public static final SerialCommunications Arduino =new SerialCommunications();
 	public static OI oi;
 
-    Command autonomousCommand;
     Command Teleop;
+    Command Autonomous;
     Command Test;
+    
+    
    
 	BuiltInAccelerometer acc = new BuiltInAccelerometer();
     //SerialPort arduino;
@@ -42,6 +46,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         // instantiate the command used for the autonomous period
         Teleop = new Teleop();
+        Autonomous = new Autonomous();
         //arduino.writeString("Eugenio 4635");
       
     }
@@ -52,7 +57,7 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
-        if (autonomousCommand != null) autonomousCommand.start();
+        if (Autonomous != null) Autonomous.start();
     }
 
     /**
@@ -67,7 +72,7 @@ public class Robot extends IterativeRobot {
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        if (autonomousCommand != null) autonomousCommand.cancel();
+        if (Autonomous != null) Autonomous.cancel();
     }
 
     /**

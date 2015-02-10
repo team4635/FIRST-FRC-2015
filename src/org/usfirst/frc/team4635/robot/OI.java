@@ -74,7 +74,7 @@ public class OI {
         btnElevatorDownOverride.whileHeld(new ElevatorDownOverride()); //Eje Y
         
         
-        btnVerticalRight.whileHeld(new Rotate(30)); //Eje Y
+        btnVerticalRight.whenPressed(new Rotate(30)); //Eje Y
         //btn3.whenPressed(new ElevatorStop()); //Eje Y
     } 
 	
