@@ -42,6 +42,28 @@ public class RobotMap {
     //
     public static int elevatorMotorPort = 0;
     
+   //
+   //launchpad buttons
+    //
+    public static int launchpadMat1x1 = 8;
+    public static int launchpadMat1x2 = 7;
+    public static int launchpadMat1x3 = 13;
+    public static int launchpadMat2x1 = 4;
+    public static int launchpadMat2x2 = 6;
+    public static int launchpadMat2x3 = 12;
+    public static int launchpadMat3x1 = 1;
+    public static int launchpadMat3x2 = 2;
+    public static int launchpadMat3x3 = 3;
+    
+    //
+    //launchpad lever down lever up
+    //
+    public static int launchpadLeverUp = 0;
+    public static int launchpadLeverDown = 0;
+    
+    
+    
+    
     //
     // Map of Analog Inputs
     //
