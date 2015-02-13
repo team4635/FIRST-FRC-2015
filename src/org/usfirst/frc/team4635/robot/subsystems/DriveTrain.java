@@ -31,8 +31,8 @@ public class DriveTrain extends Subsystem {
     	myRobot.tankDrive(speedLeft, speedRight);
     }
     public void drive(double xSpeed, double ySpeed, double yThrottle) {
-    	myRobot.arcadeDrive(sensorIRX(ai.getVoltage(), ySpeed)*yThrottle, sensorIRY(ai.getVoltage(), xSpeed)*yThrottle, true);
-    	//myRobot.arcadeDrive(ySpeed*yThrottle, xSpeed*yThrottle );
+    	//myRobot.arcadeDrive(sensorIRX(ai.getVoltage(), ySpeed)*yThrottle, sensorIRY(ai.getVoltage(), xSpeed)*yThrottle, true);
+    	myRobot.arcadeDrive(ySpeed*yThrottle, xSpeed*yThrottle );
     	//System.out.println(ai.getVoltage());
     }
     public void stop(){

@@ -4,6 +4,7 @@ package org.usfirst.frc.team4635.robot.subsystems;
 import org.usfirst.frc.team4635.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.Counter;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -19,8 +20,8 @@ public class WindowMotor extends Subsystem {
 	AnalogInput ai2 = new AnalogInput(RobotMap.analogElevator);
 	
 	DigitalInput bottomSwitch = new DigitalInput(RobotMap.bottomSwitchoPort);
-	DigitalInput topSwitch = new DigitalInput(RobotMap.topSwitchPort);
-	//Counter bottomCounter = new Counter(bottomSwitch);
+	//DigitalInput topSwitch = new DigitalInput(RobotMap.topSwitchPort);
+	Counter bottomCounter = new Counter(bottomSwitch);
 
 	private double state = -1; // This defines the level in which the elevator is located
 	private double nState = 5; //Number of states
@@ -59,14 +60,6 @@ public class WindowMotor extends Subsystem {
     	} else
     		return false;
     }
-    //Switch de limite para saber si esta hasta arriba
-    public boolean isTopSet() {
-    	if(topSwitch.get()){
-    		state=nState;
-    		return true;
-    	} else
-    		return false;
-    }
     //Switch de limite para saber si esta hasta abajo
     public boolean isBottomSet() {
     	if(bottomSwitch.get()){
@@ -74,6 +67,9 @@ public class WindowMotor extends Subsystem {
     		return true;
     	} else
     		return false;
+    }
+    public void initializeCounter() {
+    	bottomCounter.reset();
     }
     //Regresa el voltaje (calibrado)
     public double getVoltage(){

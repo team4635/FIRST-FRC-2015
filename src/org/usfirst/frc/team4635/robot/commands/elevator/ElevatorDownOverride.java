@@ -10,6 +10,7 @@ import org.usfirst.frc.team4635.robot.Robot;
  */
 public class ElevatorDownOverride extends Command {
 
+	
     public ElevatorDownOverride() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.WindowMotor);
@@ -17,18 +18,17 @@ public class ElevatorDownOverride extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.WindowMotor.up();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.WindowMotor.down();
-    	System.out.println(Robot.WindowMotor.getVoltage());
     
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return false;
+    	return Robot.WindowMotor.isBottomSet();
     }
 
     // Called once after isFinished returns true

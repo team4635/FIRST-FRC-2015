@@ -70,8 +70,8 @@ public class OI {
         btnElevatorUp.whenPressed(new ElevatorUp()); //Eje Y
         btnElevatorDown.whenPressed(new ElevatorDown()); //Eje Y
         btnElevatorStop.whenPressed(new ElevatorStop()); //Eje Y
-        btnElevatorUpOverride.whileHeld(new ElevatorUpOverride()); //Eje Y
-        btnElevatorDownOverride.whileHeld(new ElevatorDownOverride()); //Eje Y
+        btnElevatorUpOverride.whileHeld(new ElevatorDownOverride()); //Eje Y
+        btnElevatorDownOverride.whileHeld(new ElevatorUpOverride()); //Eje Y
         
         
         btnVerticalRight.whenPressed(new Rotate(30)); //Eje Y

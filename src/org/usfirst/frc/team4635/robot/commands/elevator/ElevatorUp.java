@@ -53,6 +53,6 @@ public class ElevatorUp extends Command {
     	Robot.WindowMotor.stop();
     }
     private void checkLimits() {
-    	isInLimits=Robot.WindowMotor.isTopSet();
+    	isInLimits=Robot.WindowMotor.isBottomSet();
     }
 }
