@@ -21,16 +21,20 @@ public class OI {
     //Joystick xboxJoystick = new Joystick(RobotMap.xboxJoystickPort);
     //Joystick launchpadJoystick = new Joystick(RobotMap.launchpadJoystickPort);
 	Joystick attack3Joystick = new Joystick(RobotMap.attack3JoystickPort);
+	Joystick launchpadJoystick = new Joystick(RobotMap.launchpadJoystickPort);
     
     //Buttons
     //Este es el mappeo de botones de los controladores:
     //
-    Button btnElevatorUp = new JoystickButton(attack3Joystick, RobotMap.elevatorUpPort);
-    Button btnElevatorDown = new JoystickButton(attack3Joystick, RobotMap.elevatorDownPort);
-    Button btnElevatorStop = new JoystickButton(attack3Joystick, RobotMap.elevatorStopPort);
+    // btnElevatorUp = new JoystickButton(attack3Joystick, RobotMap.elevatorUpPort);
+    //Button btnElevatorDown = new JoystickButton(attack3Joystick, RobotMap.elevatorDownPort);
+    //Button btnElevatorStop = new JoystickButton(attack3Joystick, RobotMap.elevatorStopPort);
     
     Button btnElevatorUpOverride = new JoystickButton(attack3Joystick, RobotMap.elevatorUpOverridePort);
     Button btnElevatorDownOverride = new JoystickButton(attack3Joystick, RobotMap.elevatorDownOverridePort);
+    
+    Button btnElevatorUpArcade = new JoystickButton(launchpadJoystick, RobotMap.launchpadMat3x1);
+    Button btnElevatorDownArcade = new JoystickButton(launchpadJoystick, RobotMap.launchpadMat2x1);
     
     Button btnVerticalRight = new JoystickButton(attack3Joystick, RobotMap.verticalRightPort);
     Button btnVerticalLeft = new JoystickButton(attack3Joystick, RobotMap.verticalLeftPort);
@@ -67,11 +71,13 @@ public class OI {
 	//        return leftAttack3Joystick.getRawAxis(1); //look up what the actual axis number is
 	//    }
     public OI() {
-        btnElevatorUp.whenPressed(new ElevatorUp()); //Eje Y
-        btnElevatorDown.whenPressed(new ElevatorDown()); //Eje Y
-        btnElevatorStop.whenPressed(new ElevatorStop()); //Eje Y
+        //.whenPressed(new ElevatorUp()); //Eje Y
+        //btnElevatorDown.whenPressed(new ElevatorDown()); //Eje Y
+        //btnElevatorStop.whenPressed(new ElevatorStop()); //Eje Y
         btnElevatorUpOverride.whileHeld(new ElevatorDownOverride()); //Eje Y
         btnElevatorDownOverride.whileHeld(new ElevatorUpOverride()); //Eje Y
+        btnElevatorUpArcade.whileHeld(new ElevatorDownOverride()); //Eje Y
+        btnElevatorDownArcade.whileHeld(new ElevatorUpOverride()); //Eje Y
         
         
         btnVerticalRight.whenPressed(new Rotate(30)); //Eje Y
