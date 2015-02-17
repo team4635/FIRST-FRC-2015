@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
+import org.usfirst.frc.team4635.robot.commands.Pan;
 import org.usfirst.frc.team4635.robot.commands.drivetrain.Rotate;
 import org.usfirst.frc.team4635.robot.commands.elevator.*;
 
@@ -22,7 +23,6 @@ public class OI {
     //Joystick launchpadJoystick = new Joystick(RobotMap.launchpadJoystickPort);
 	Joystick attack3Joystick = new Joystick(RobotMap.attack3JoystickPort);
 	Joystick launchpadJoystick = new Joystick(RobotMap.launchpadJoystickPort);
-    
     //Buttons
     //Este es el mappeo de botones de los controladores:
     //
@@ -36,8 +36,14 @@ public class OI {
     Button btnElevatorUpArcade = new JoystickButton(launchpadJoystick, RobotMap.launchpadMat3x1);
     Button btnElevatorDownArcade = new JoystickButton(launchpadJoystick, RobotMap.launchpadMat2x1);
     
+    Button btnPanRightArcade = new JoystickButton(launchpadJoystick, RobotMap.launchpadMat1x1);
+    Button btnPanLeftArcade = new JoystickButton(launchpadJoystick, RobotMap.launchpadMat1x2);
+    
     Button btnVerticalRight = new JoystickButton(attack3Joystick, RobotMap.verticalRightPort);
     Button btnVerticalLeft = new JoystickButton(attack3Joystick, RobotMap.verticalLeftPort);
+    
+ 
+    
     //Button btn3 = new JoystickButton(attack3Joystick, RobotMap.elevatorDownPort);
     // There are a few additional built in buttons you can use. Additionally,
     // by subclassing Button you can create custom triggers and bind those to
@@ -78,6 +84,7 @@ public class OI {
         btnElevatorDownOverride.whileHeld(new ElevatorUpOverride()); //Eje Y
         btnElevatorUpArcade.whileHeld(new ElevatorDownOverride()); //Eje Y
         btnElevatorDownArcade.whileHeld(new ElevatorUpOverride()); //Eje Y
+        btnPanLeftArcade.whileHeld(new Pan(-1));
         
         
         btnVerticalRight.whenPressed(new Rotate(30)); //Eje Y

@@ -23,8 +23,9 @@ public class DriveTrainOneJoystick extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    		((DriveTrain) Robot.DriveTrain).drive(-Robot.oi.getJoystickX(),Robot.oi.getJoystickY(), -Robot.oi.getThrottle());
-    	//((DriveTrain) Robot.DriveTrain).drive(-Robot.oi.getJoystickX()+0.44, -Robot.oi.getJoystickX());
+    		//((DriveTrain) Robot.DriveTrain).drive(-Robot.oi.getJoystickX(),Robot.oi.getJoystickY(), -Robot.oi.getThrottle());
+    	//((DriveTrain) Robot.DriveTrain).drive(-Robot.oi.getJoystickX(), -Robot.oi.getJoystickX());
+    	((DriveTrain) Robot.DriveTrain).perfectDrive(Robot.oi.getJoystickY()*Robot.oi.getThrottle(),Robot.oi.getJoystickX()*Robot.oi.getThrottle());
     }
 
     // Make this return true when this Command no longer needs to run execute()

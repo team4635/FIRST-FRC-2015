@@ -15,7 +15,7 @@ public class DriveTrain extends Subsystem {
     
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	RobotDrive myRobot = new RobotDrive(0,1,2,3);
+	RobotDrive myRobot = new RobotDrive(RobotMap.robotDriveLeftFront, RobotMap.robotDriveLeftRear, RobotMap.robotDriveRightFront, RobotMap.robotDriveRightRear);
 	AnalogInput ai = new AnalogInput(RobotMap.analogForward);
 	
 	double correctWay = 0;
@@ -28,7 +28,7 @@ public class DriveTrain extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     public void drive(double speedLeft, double speedRight) {
-    	myRobot.tankDrive(speedLeft, speedRight);
+    	myRobot.tankDrive(speedLeft, speedRight*1.05);
     }
     public void drive(double xSpeed, double ySpeed, double yThrottle) {
     	//myRobot.arcadeDrive(sensorIRX(ai.getVoltage(), ySpeed)*yThrottle, sensorIRY(ai.getVoltage(), xSpeed)*yThrottle, true);
@@ -76,6 +76,29 @@ public class DriveTrain extends Subsystem {
     	double angle = Robot.analogDevices.getGyro();
     	correctWay=angle*Kp;
     	
+    }
+    public void perfectDrive(double moveValue, double rotateValue){
+        double leftMotorSpeed;
+        double rightMotorSpeed;
+    	if (moveValue > 0.0) {
+            if (rotateValue > 0.0) {
+                leftMotorSpeed = moveValue - rotateValue;
+                rightMotorSpeed = Math.max(moveValue, rotateValue);
+            } else {
+                leftMotorSpeed = Math.max(moveValue, -rotateValue);
+                rightMotorSpeed = moveValue + rotateValue;
+            }
+        } else {
+            if (rotateValue > 0.0) {
+                leftMotorSpeed = -Math.max(-moveValue, rotateValue);
+                rightMotorSpeed = moveValue + rotateValue;
+            } else {
+                leftMotorSpeed = moveValue - rotateValue;
+                rightMotorSpeed = -Math.max(-moveValue, -rotateValue);
+            }
+        }
+    	System.out.println("left: "+leftMotorSpeed+"--- right: "+rightMotorSpeed);
+    	myRobot.tankDrive(leftMotorSpeed*1.2, rightMotorSpeed);
     }
 }
 

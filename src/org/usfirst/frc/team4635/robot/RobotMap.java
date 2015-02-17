@@ -42,6 +42,14 @@ public class RobotMap {
     //
     public static int elevatorMotorPort = 0;
     
+    //
+    // Map of RobotDrive
+    //
+    public static int robotDriveLeftFront=1;
+    public static int robotDriveLeftRear=2;
+    public static int robotDriveRightFront=0;
+    public static int robotDriveRightRear=3;
+    
    //
    //launchpad buttons
     //

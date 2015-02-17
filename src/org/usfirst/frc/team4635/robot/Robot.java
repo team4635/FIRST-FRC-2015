@@ -26,6 +26,7 @@ public class Robot extends IterativeRobot {
 	public static final WindowMotor WindowMotor =new WindowMotor();
 	public static final analogDevices analogDevices =new analogDevices();
 	public static final Variables variables =new Variables();
+	public static final camera cam = new camera();
 	//public static final SerialCommunications Arduino =new SerialCommunications();
 	public static OI oi;
 
