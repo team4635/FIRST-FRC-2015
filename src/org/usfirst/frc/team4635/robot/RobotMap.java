@@ -23,7 +23,7 @@ public class RobotMap {
     public static int leftAttack3JoystickPort = 1;
     public static int rightAttack3JoystickPort = 2;
     public static int xboxJoystickPort = 3;
-    public static int launchpadJoystickPort = 4;
+    public static int launchpadJoystickPort = 1;
     
     //
 	// Map of Buttons

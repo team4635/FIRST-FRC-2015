@@ -24,11 +24,11 @@ public class camera extends Subsystem {
     	return pan.getAngle();
     }
     public void setTilt(double value) {
-    	value=maxAngle(value);
+    	//value=maxAngle(value);
     	tilt.setAngle(value);
     }
     public void setPan(double value) {
-    	value=maxAngle(value);
+    	//value=maxAngle(value);
     	pan.setAngle(value);
     }
     public double maxAngle(double value){

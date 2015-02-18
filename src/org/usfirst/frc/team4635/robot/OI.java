@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team4635.robot.commands.Pan;
+import org.usfirst.frc.team4635.robot.commands.Shake;
 import org.usfirst.frc.team4635.robot.commands.drivetrain.Rotate;
 import org.usfirst.frc.team4635.robot.commands.elevator.*;
 
@@ -27,20 +28,22 @@ public class OI {
     //Este es el mappeo de botones de los controladores:
     //
     // btnElevatorUp = new JoystickButton(attack3Joystick, RobotMap.elevatorUpPort);
-    //Button btnElevatorDown = new JoystickButton(attack3Joystick, RobotMap.elevatorDownPort);
-    //Button btnElevatorStop = new JoystickButton(attack3Joystick, RobotMap.elevatorStopPort);
+    Button btnElevatorDown = new JoystickButton(attack3Joystick, RobotMap.elevatorDownPort);
+    Button btnElevatorStop = new JoystickButton(attack3Joystick, RobotMap.elevatorStopPort);
     
     Button btnElevatorUpOverride = new JoystickButton(attack3Joystick, RobotMap.elevatorUpOverridePort);
     Button btnElevatorDownOverride = new JoystickButton(attack3Joystick, RobotMap.elevatorDownOverridePort);
     
-    Button btnElevatorUpArcade = new JoystickButton(launchpadJoystick, RobotMap.launchpadMat3x1);
-    Button btnElevatorDownArcade = new JoystickButton(launchpadJoystick, RobotMap.launchpadMat2x1);
+    Button btnElevatorUpArcade = new JoystickButton(launchpadJoystick, RobotMap.launchpadMat3x2);
+    Button btnElevatorDownArcade = new JoystickButton(launchpadJoystick, RobotMap.launchpadMat3x3);
     
     Button btnPanRightArcade = new JoystickButton(launchpadJoystick, RobotMap.launchpadMat1x1);
     Button btnPanLeftArcade = new JoystickButton(launchpadJoystick, RobotMap.launchpadMat1x2);
     
     Button btnVerticalRight = new JoystickButton(attack3Joystick, RobotMap.verticalRightPort);
     Button btnVerticalLeft = new JoystickButton(attack3Joystick, RobotMap.verticalLeftPort);
+    
+    Button btnShake = new JoystickButton(attack3Joystick, RobotMap.launchpadMat3x1);
     
  
     
@@ -85,6 +88,7 @@ public class OI {
         btnElevatorUpArcade.whileHeld(new ElevatorDownOverride()); //Eje Y
         btnElevatorDownArcade.whileHeld(new ElevatorUpOverride()); //Eje Y
         btnPanLeftArcade.whileHeld(new Pan(-1));
+        btnShake.whenPressed(new Shake());
         
         
         btnVerticalRight.whenPressed(new Rotate(30)); //Eje Y

@@ -1,32 +1,30 @@
 package org.usfirst.frc.team4635.robot.commands;
 
 import org.usfirst.frc.team4635.robot.Robot;
-import org.usfirst.frc.team4635.robot.subsystems.camera;
+import org.usfirst.frc.team4635.robot.subsystems.DriveTrain;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class Pan extends Command {
+public class Shake extends Command {
 
-	private double angle = 0.00;
-    public Pan(double value) {
+    public Shake() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.cam);
+    	requires(Robot.DriveTrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	if(Robot.cam.getPan()<0){
-    		Robot.cam.setPan(180.0f);
-    		System.out.println("PAN");
-    	}
-    	else{
-    		Robot.cam.setPan(-180.0f);
-    		System.out.println("PAN");
-    	}
+    	((DriveTrain) Robot.DriveTrain).perfectDrive(0, 0.5);
+    	Timer.delay(1);
+    	((DriveTrain) Robot.DriveTrain).perfectDrive(0, 0.5);
+    	Timer.delay(1);
+    	((DriveTrain) Robot.DriveTrain).perfectDrive(0, 0);
+    	
     	
     }
 
@@ -36,7 +34,7 @@ public class Pan extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

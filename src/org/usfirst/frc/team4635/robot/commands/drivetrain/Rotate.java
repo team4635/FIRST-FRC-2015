@@ -17,6 +17,7 @@ public class Rotate extends Command {
 	private double vMin= 0.3f;
 	private double velocidad= 0.00f;
 	private boolean positivo = true;
+	private int loopCounter =0;
     public Rotate(double value) {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.DriveTrain);
@@ -32,31 +33,27 @@ public class Rotate extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.analogDevices.resetGyro();
+    	loopCounter=0;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	anguloAct=Robot.analogDevices.getGyro();
-    	velocidad=((vMin-vMax)/Math.pow(anguloDes,2))*Math.pow((anguloAct-(anguloDes/2)), 2)+vMax;
-    	((DriveTrain) Robot.DriveTrain).drive(0.5,0);
-    	System.out.println(anguloAct+" : "+anguloDes+" : "+velocidad);
+    	while (anguloAct<anguloDes){
+	    	anguloAct=Robot.analogDevices.getGyro();
+	    	velocidad=((vMin-vMax)/Math.pow(anguloDes,2))*Math.pow((anguloAct-(anguloDes/2)), 2)+vMax;
+	    		((DriveTrain) Robot.DriveTrain).perfectDrive(0,-0.5);
+	    		
+	    	System.out.println(anguloAct+" : "+anguloDes+" : "+velocidad+" : "+loopCounter);
+	    	loopCounter++;
+	    	if (loopCounter>=200)
+	    		break;
+    	}
     	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-	    if (positivo && anguloAct>anguloDes){//Si el angulo desado es positivo compara que el actual sea mayor
-	    	System.out.println("true");
-	    	Robot.variables.setManualDrive(true);
-	    	return true;
-	    }
-	    else if (!positivo && anguloAct<anguloDes){//Si el angulo desado es negativo compara que el angulo actual sea menor
-	    	System.out.println("true");
-	    	Robot.variables.setManualDrive(true);
-	    	return true;
-	    }
-	    System.out.println("false else");
-	    return false;
+	    return true;
     }
 
     // Called once after isFinished returns true
