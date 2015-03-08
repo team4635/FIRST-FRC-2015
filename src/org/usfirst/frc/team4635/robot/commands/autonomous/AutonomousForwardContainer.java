@@ -1,16 +1,16 @@
-package org.usfirst.frc.team4635.robot.commands;
+package org.usfirst.frc.team4635.robot.commands.autonomous;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 import org.usfirst.frc.team4635.robot.commands.drivetrain.Drive;
-
+import org.usfirst.frc.team4635.robot.commands.elevator.ElevatorUp;
 
 /**
  *
  */
-public class AutonomousForward extends CommandGroup {
+public class AutonomousForwardContainer extends CommandGroup {
     
-    public  AutonomousForward() {
+    public  AutonomousForwardContainer() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -29,7 +29,9 @@ public class AutonomousForward extends CommandGroup {
         // arm.
     	
     	//Normal
-    	addSequential(new Drive(0.5, 6));
+    	addSequential(new Drive(0.5, 1));
+    	addParallel(new Drive(0.5, 5));
+    	addSequential(new ElevatorUp());
     	
     	//addSequential(new ElevatorUp());
     	//addSequential(new Rotate(0.5, 1));

@@ -1,4 +1,4 @@
-package org.usfirst.frc.team4635.robot.commands;
+package org.usfirst.frc.team4635.robot.commands.autonomous;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -8,9 +8,9 @@ import org.usfirst.frc.team4635.robot.commands.elevator.ElevatorUp;
 /**
  *
  */
-public class AutonomousForwardContainer extends CommandGroup {
+public class AutonomousForwardBox extends CommandGroup {
     
-    public  AutonomousForwardContainer() {
+    public  AutonomousForwardBox() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

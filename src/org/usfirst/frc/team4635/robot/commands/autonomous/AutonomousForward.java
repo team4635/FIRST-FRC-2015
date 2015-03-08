@@ -1,16 +1,16 @@
-package org.usfirst.frc.team4635.robot.commands;
+package org.usfirst.frc.team4635.robot.commands.autonomous;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 import org.usfirst.frc.team4635.robot.commands.drivetrain.Drive;
-import org.usfirst.frc.team4635.robot.commands.drivetrain.Rotate;
+
 
 /**
  *
  */
-public class Autonomous extends CommandGroup {
+public class AutonomousForward extends CommandGroup {
     
-    public  Autonomous() {
+    public  AutonomousForward() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -27,6 +27,11 @@ public class Autonomous extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addSequential(new Rotate(90));
+    	
+    	//Normal
+    	addSequential(new Drive(0.5, 6));
+    	
+    	//addSequential(new ElevatorUp());
+    	//addSequential(new Rotate(0.5, 1));
     }
 }

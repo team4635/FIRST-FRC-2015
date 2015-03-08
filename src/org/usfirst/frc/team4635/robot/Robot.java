@@ -10,11 +10,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import org.usfirst.frc.team4635.robot.subsystems.*;
-import org.usfirst.frc.team4635.robot.commands.AutonomousForward;
-import org.usfirst.frc.team4635.robot.commands.AutonomousForwardBox;
-import org.usfirst.frc.team4635.robot.commands.AutonomousForwardContainer;
-import org.usfirst.frc.team4635.robot.commands.AutonomousNon;
 import org.usfirst.frc.team4635.robot.commands.Teleop;
+import org.usfirst.frc.team4635.robot.commands.autonomous.AutonomousForward;
+import org.usfirst.frc.team4635.robot.commands.autonomous.AutonomousForwardBox;
+import org.usfirst.frc.team4635.robot.commands.autonomous.AutonomousForwardContainer;
+import org.usfirst.frc.team4635.robot.commands.autonomous.AutonomousNon;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -25,12 +25,9 @@ import org.usfirst.frc.team4635.robot.commands.Teleop;
  */
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static final Subsystem DriveTrain =new DriveTrain();
 	public static final WindowMotor WindowMotor =new WindowMotor();
 	public static final analogDevices analogDevices =new analogDevices();
-	public static final Variables variables =new Variables();
-	public static final camera cam = new camera();
 	//public static final SerialCommunications Arduino =new SerialCommunications();
 	public static OI oi;
 
