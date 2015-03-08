@@ -18,11 +18,12 @@ public class ElevatorUpOverride extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.WindowMotor.initializeCounter();
-    	Robot.WindowMotor.down();
+    	Robot.WindowMotor.up();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	System.out.println(Robot.WindowMotor.getVoltage());
     
     }
 

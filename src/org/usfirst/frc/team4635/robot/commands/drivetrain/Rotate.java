@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team4635.robot.commands.drivetrain;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team4635.robot.Robot;
@@ -11,49 +12,34 @@ import org.usfirst.frc.team4635.robot.subsystems.DriveTrain;
  */
 public class Rotate extends Command {
 
-	private double anguloDes= 0.00f;
-	private double anguloAct= 0.00f;
-	private double vMax= 0.5f;
-	private double vMin= 0.3f;
-	private double velocidad= 0.00f;
-	private boolean positivo = true;
-	private int loopCounter =0;
-    public Rotate(double value) {
+	public double speed=0.00;
+	private double timeFinal = 0;
+	private double seconds=0;
+    public Rotate(double vReq, double tReq) {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.DriveTrain);
-        requires(Robot.variables);
-        anguloDes=value;
-        if(anguloDes>0)
-        	positivo = true;
-        else
-        	positivo = false;
-        Robot.variables.setManualDrive(false);
+    	requires(Robot.DriveTrain);
+        speed=vReq;
+        seconds=tReq;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.analogDevices.resetGyro();
-    	loopCounter=0;
+    	timeFinal=Timer.getFPGATimestamp()+seconds;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	while (anguloAct<anguloDes){
-	    	anguloAct=Robot.analogDevices.getGyro();
-	    	velocidad=((vMin-vMax)/Math.pow(anguloDes,2))*Math.pow((anguloAct-(anguloDes/2)), 2)+vMax;
-	    		((DriveTrain) Robot.DriveTrain).perfectDrive(0,-0.5);
-	    		
-	    	System.out.println(anguloAct+" : "+anguloDes+" : "+velocidad+" : "+loopCounter);
-	    	loopCounter++;
-	    	if (loopCounter>=200)
-	    		break;
-    	}
+    	((DriveTrain) Robot.DriveTrain).perfectDrive(0, speed);
     	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-	    return true;
+    	if(timeFinal<=Timer.getFPGATimestamp()){
+        	return true;
+        }else{
+        	return false;
+        }
     }
 
     // Called once after isFinished returns true

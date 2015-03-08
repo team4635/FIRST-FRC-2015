@@ -24,7 +24,7 @@ public class DriveTrainOneJoystick extends Command {
     protected void execute() {
     		//((DriveTrain) Robot.DriveTrain).drive(-Robot.oi.getJoystickX(),Robot.oi.getJoystickY(), -Robot.oi.getThrottle());
     	//((DriveTrain) Robot.DriveTrain).drive(-Robot.oi.getJoystickX(), -Robot.oi.getJoystickX());
-    	((DriveTrain) Robot.DriveTrain).perfectDrive(Robot.oi.getJoystickY()*Robot.oi.getThrottle(),Robot.oi.getJoystickX()*Robot.oi.getThrottle());
+    	((DriveTrain) Robot.DriveTrain).perfectDrive(Robot.oi.getJoystickY()*Robot.oi.getThrottle(),Robot.oi.getJoystickX()*Robot.oi.getThrottle()+-1*Robot.oi.getJoystickXCStick());
     }
 
     // Make this return true when this Command no longer needs to run execute()

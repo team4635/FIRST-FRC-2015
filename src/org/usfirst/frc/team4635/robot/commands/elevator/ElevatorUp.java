@@ -10,8 +10,7 @@ import org.usfirst.frc.team4635.robot.Robot;
  */
 public class ElevatorUp extends Command {
 
-	private int counter=0;
-	private boolean isInLimits=true;
+	private int contador=0;
     public ElevatorUp() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.WindowMotor);
@@ -19,28 +18,25 @@ public class ElevatorUp extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	counter=0;
-    	checkLimits();
+    	contador=0;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(!isInLimits)
-    		Robot.WindowMotor.up();
+    	Robot.WindowMotor.up();
     
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	checkLimits();
-    	if (counter>20)
-    		return (Robot.WindowMotor.isSwitchSet(1) || isInLimits);
-    	else if (isInLimits)
-    		return true;
+    	if(contador<100){
+    		contador++;
+    	}
     	else
-    		counter++;
-    	return false;
+    		return Robot.WindowMotor.isSwitchSet();
+		return false;
     }
+
 
     // Called once after isFinished returns true
     protected void end() {
@@ -51,8 +47,5 @@ public class ElevatorUp extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     	Robot.WindowMotor.stop();
-    }
-    private void checkLimits() {
-    	isInLimits=Robot.WindowMotor.isBottomSet();
     }
 }

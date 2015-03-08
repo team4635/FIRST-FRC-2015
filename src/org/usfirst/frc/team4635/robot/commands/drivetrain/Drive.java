@@ -14,14 +14,18 @@ import org.usfirst.frc.team4635.robot.subsystems.DriveTrain;
 public class Drive extends Command {
 
 	public double speed=0.00;
-    public Drive(double value) {
+	private double timeFinal = 0;
+	private double seconds=0;
+    public Drive(double vReq, double tReq) {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.DriveTrain);
-        speed=value;
+        speed=vReq;
+        seconds=tReq;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	timeFinal=Timer.getFPGATimestamp()+seconds;
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
@@ -30,17 +34,21 @@ public class Drive extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        if(timeFinal<=Timer.getFPGATimestamp()){
+        	return true;
+        }else{
+        	return false;
+        }
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	//((DriveTrain) Robot.DriveTrain).drive(0,0);
+    	((DriveTrain) Robot.DriveTrain).drive(0,0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	//((DriveTrain) Robot.DriveTrain).drive(0,0);
+    	((DriveTrain) Robot.DriveTrain).drive(0,0);
     }
 }

@@ -20,6 +20,7 @@ public class DriveTrain extends Subsystem {
 	
 	double correctWay = 0;
 	double Kp =0.03;
+	double multiplier = 1;
 	
     public void initDefaultCommand() {
     	double test = Robot.analogDevices.getGyro();
@@ -27,12 +28,18 @@ public class DriveTrain extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
+    public void setMultiplier(double value){
+    	multiplier = value;
+    }
+    public double getMultiplier(){
+    	return multiplier;
+    }
     public void drive(double speedLeft, double speedRight) {
-    	myRobot.tankDrive(speedLeft, speedRight*1.05);
+    	myRobot.tankDrive(speedLeft*multiplier, speedRight*1.05*multiplier);
     }
     public void drive(double xSpeed, double ySpeed, double yThrottle) {
     	//myRobot.arcadeDrive(sensorIRX(ai.getVoltage(), ySpeed)*yThrottle, sensorIRY(ai.getVoltage(), xSpeed)*yThrottle, true);
-    	myRobot.arcadeDrive(ySpeed*yThrottle, xSpeed*yThrottle );
+    	myRobot.arcadeDrive(ySpeed*yThrottle*multiplier, xSpeed*yThrottle*multiplier);
     	//System.out.println(ai.getVoltage());
     }
     public void stop(){
@@ -97,8 +104,8 @@ public class DriveTrain extends Subsystem {
                 rightMotorSpeed = -Math.max(-moveValue, -rotateValue);
             }
         }
-    	myRobot.tankDrive(leftMotorSpeed*1, rightMotorSpeed);
-    	System.out.println("left: "+leftMotorSpeed+"--- right: "+rightMotorSpeed);
+    	myRobot.tankDrive(leftMotorSpeed*1*multiplier, rightMotorSpeed*multiplier);
+    	//System.out.println("left: "+leftMotorSpeed+"--- right: "+rightMotorSpeed);
     }
     public void rotate(){
     	

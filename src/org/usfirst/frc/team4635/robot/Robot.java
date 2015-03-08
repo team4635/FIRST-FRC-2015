@@ -1,15 +1,19 @@
 
 package org.usfirst.frc.team4635.robot;
 
-import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import org.usfirst.frc.team4635.robot.subsystems.*;
-import org.usfirst.frc.team4635.robot.commands.Autonomous;
+import org.usfirst.frc.team4635.robot.commands.AutonomousForward;
+import org.usfirst.frc.team4635.robot.commands.AutonomousForwardBox;
+import org.usfirst.frc.team4635.robot.commands.AutonomousForwardContainer;
+import org.usfirst.frc.team4635.robot.commands.AutonomousNon;
 import org.usfirst.frc.team4635.robot.commands.Teleop;
 
 /**
@@ -33,10 +37,12 @@ public class Robot extends IterativeRobot {
     Command Teleop;
     Command Autonomous;
     Command Test;
+    Command autonomousCommand;
+    SendableChooser autoChooser;
     
+    public static double mutipilier=1;
     
-   
-	BuiltInAccelerometer acc = new BuiltInAccelerometer();
+	//BuiltInAccelerometer acc = new BuiltInAccelerometer();
     //SerialPort arduino;
 
     /**
@@ -47,8 +53,13 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         // instantiate the command used for the autonomous period
         Teleop = new Teleop();
-        Autonomous = new Autonomous();
         //arduino.writeString("Eugenio 4635");
+        autoChooser = new SendableChooser();
+        autoChooser.addDefault("Forward", new AutonomousForward());
+        autoChooser.addObject("Forward with Box", new AutonomousForwardBox());
+        autoChooser.addObject("Forward with Conatainer", new AutonomousForwardContainer());
+        autoChooser.addObject("None", new AutonomousNon());
+        SmartDashboard.putData("Autonomous mode chooser", autoChooser);
       
     }
 	
@@ -58,7 +69,9 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
-        if (Autonomous != null) Autonomous.start();
+        //if (Autonomous != null) Autonomous.start();
+    	autonomousCommand = (Command) autoChooser.getSelected();
+    	autonomousCommand.start();
     }
 
     /**
@@ -73,7 +86,8 @@ public class Robot extends IterativeRobot {
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        if (Autonomous != null) Autonomous.cancel();
+    	
+        if (autonomousCommand != null) autonomousCommand.cancel();
     }
 
     /**

@@ -38,6 +38,13 @@ public class RobotMap {
     public static int verticalLeftPort = 4;
     
     //
+	// Map of Sticks
+    // 
+    public static int xStick = 0;
+    public static int yStick = 1;
+    public static int xCStick = 3;
+    
+    //
     // Map of ElevatorMotors
     //
     public static int elevatorMotorPort = 0;
@@ -63,6 +70,9 @@ public class RobotMap {
     public static int launchpadMat3x2 = 2;
     public static int launchpadMat3x3 = 3;
     
+    public static int launchpadUp = 7;
+    public static int launchpadDown = 5;
+    
     //
     //launchpad lever down lever up
     //
@@ -77,7 +87,7 @@ public class RobotMap {
     //
     public static int analogForward = 1;
     public static int gyroPort = 0;
-    public static int analogElevator =2;
+    public static int analogElevator =3;
     
     //
     // Map of Digital Inputs

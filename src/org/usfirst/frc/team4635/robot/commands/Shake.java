@@ -19,8 +19,11 @@ public class Shake extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	((DriveTrain) Robot.DriveTrain).perfectDrive(0, 0.5);
-    	Timer.delay(1);
+    	System.out.println("Test");
+    	double tempTime = Timer.getFPGATimestamp()+10;
+    	while(tempTime >=Timer.getFPGATimestamp()){
+    		((DriveTrain) Robot.DriveTrain).perfectDrive(0, 0.5);
+    	}
     	((DriveTrain) Robot.DriveTrain).perfectDrive(0, 0.5);
     	Timer.delay(1);
     	((DriveTrain) Robot.DriveTrain).perfectDrive(0, 0);
@@ -34,7 +37,7 @@ public class Shake extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true

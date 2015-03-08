@@ -1,7 +1,6 @@
 package org.usfirst.frc.team4635.robot.commands;
 
 import org.usfirst.frc.team4635.robot.Robot;
-import org.usfirst.frc.team4635.robot.subsystems.camera;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -10,8 +9,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class Pan extends Command {
 
-	private double angle = 0.00;
-    public Pan(double value) {
+	public Pan(double value) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.cam);

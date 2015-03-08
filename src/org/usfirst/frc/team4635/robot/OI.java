@@ -4,9 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import org.usfirst.frc.team4635.robot.commands.Pan;
-import org.usfirst.frc.team4635.robot.commands.Shake;
-import org.usfirst.frc.team4635.robot.commands.drivetrain.Rotate;
+import org.usfirst.frc.team4635.robot.commands.Multiplier;
 import org.usfirst.frc.team4635.robot.commands.elevator.*;
 
 /**
@@ -27,15 +25,15 @@ public class OI {
     //Buttons
     //Este es el mappeo de botones de los controladores:
     //
-    // btnElevatorUp = new JoystickButton(attack3Joystick, RobotMap.elevatorUpPort);
+    Button btnElevatorUp = new JoystickButton(attack3Joystick, RobotMap.elevatorUpPort);
     Button btnElevatorDown = new JoystickButton(attack3Joystick, RobotMap.elevatorDownPort);
     Button btnElevatorStop = new JoystickButton(attack3Joystick, RobotMap.elevatorStopPort);
     
     Button btnElevatorUpOverride = new JoystickButton(attack3Joystick, RobotMap.elevatorUpOverridePort);
     Button btnElevatorDownOverride = new JoystickButton(attack3Joystick, RobotMap.elevatorDownOverridePort);
     
-    Button btnElevatorUpArcade = new JoystickButton(launchpadJoystick, RobotMap.launchpadMat3x2);
-    Button btnElevatorDownArcade = new JoystickButton(launchpadJoystick, RobotMap.launchpadMat3x3);
+    Button btnElevatorUpArcade = new JoystickButton(launchpadJoystick, RobotMap.launchpadUp);
+    Button btnElevatorDownArcade = new JoystickButton(launchpadJoystick, RobotMap.launchpadDown);
     
     Button btnPanRightArcade = new JoystickButton(launchpadJoystick, RobotMap.launchpadMat1x1);
     Button btnPanLeftArcade = new JoystickButton(launchpadJoystick, RobotMap.launchpadMat1x2);
@@ -43,7 +41,10 @@ public class OI {
     Button btnVerticalRight = new JoystickButton(attack3Joystick, RobotMap.verticalRightPort);
     Button btnVerticalLeft = new JoystickButton(attack3Joystick, RobotMap.verticalLeftPort);
     
-    Button btnShake = new JoystickButton(attack3Joystick, RobotMap.launchpadMat3x1);
+    Button btnMulti50 = new JoystickButton(launchpadJoystick, RobotMap.launchpadMat3x1);
+    Button btnMulti75 = new JoystickButton(launchpadJoystick, RobotMap.launchpadMat3x2);
+    Button btnMulti100 = new JoystickButton(launchpadJoystick, RobotMap.launchpadMat3x3);
+    Button btnMultiInverted = new JoystickButton(launchpadJoystick, RobotMap.launchpadMat2x3);
     
  
     
@@ -80,26 +81,33 @@ public class OI {
 	//        return leftAttack3Joystick.getRawAxis(1); //look up what the actual axis number is
 	//    }
     public OI() {
-        //.whenPressed(new ElevatorUp()); //Eje Y
+    	//btnElevatorUp.whenPressed(new ElevatorUp()); //Eje Y
         //btnElevatorDown.whenPressed(new ElevatorDown()); //Eje Y
         //btnElevatorStop.whenPressed(new ElevatorStop()); //Eje Y
         btnElevatorUpOverride.whileHeld(new ElevatorDownOverride()); //Eje Y
         btnElevatorDownOverride.whileHeld(new ElevatorUpOverride()); //Eje Y
-        btnElevatorUpArcade.whileHeld(new ElevatorDownOverride()); //Eje Y
-        btnElevatorDownArcade.whileHeld(new ElevatorUpOverride()); //Eje Y
-        btnPanLeftArcade.whileHeld(new Pan(-1));
-        btnShake.whenPressed(new Shake());
+        btnElevatorUpArcade.whenPressed(new ElevatorUp()); //Eje Y
+        btnElevatorDownArcade.whenPressed(new ElevatorDown()); //Eje Y
+        btnMulti50.whenPressed(new Multiplier(0.5));
+        btnMulti75.whenPressed(new Multiplier(0.75));
+        btnMulti100.whenPressed(new Multiplier(1));
+        btnMultiInverted.whenPressed(new Multiplier(-1));
+        //btnPanLeftArcade.whileHeld(new Pan(-1));
+        //btnShake.whenPressed(new Shake());
         
         
-        btnVerticalRight.whenPressed(new Rotate(30)); //Eje Y
+        //btnVerticalRight.whenPressed(new Rotate(30)); //Eje Y
         //btn3.whenPressed(new ElevatorStop()); //Eje Y
     } 
 	
 	public double getJoystickY() {
-        return attack3Joystick.getRawAxis(1); //Eje Y
+        return attack3Joystick.getRawAxis(RobotMap.yStick); //Eje Y
     }
 	public double getJoystickX() {
-        return attack3Joystick.getRawAxis(0); //Eje X
+        return attack3Joystick.getRawAxis(RobotMap.xStick); //Eje X
+    }
+	public double getJoystickXCStick() {
+        return attack3Joystick.getRawAxis(RobotMap.xCStick); //Eje X
     }
 	public double getThrottle() {
         return attack3Joystick.getRawAxis(2); //Eje del throttle

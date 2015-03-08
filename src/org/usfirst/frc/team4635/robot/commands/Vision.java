@@ -5,8 +5,6 @@ import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
-import org.usfirst.frc.team4635.robot.Robot;
-
 import com.ni.vision.NIVision;
 import com.ni.vision.NIVision.Image;
 
